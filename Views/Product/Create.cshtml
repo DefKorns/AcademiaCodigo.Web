@@ -1,0 +1,45 @@
+@using AcademiaCodigo.Web.Models;
+@model CreateProductModel;
+@{
+    ViewBag.Title = "Adicionar Produto";
+    ViewBag.Header = "Adicionar Produto";
+}
+
+@using (Html.BeginForm("CreateProduct", "Product"))
+{
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm form-group">
+            <label for="i_code">Código</label>
+            <!--<input type="number" id="i_code" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==5) return false;" name="i_code" value="@Model.Code" class="form-control" placeholder="00000"/>-->
+       <input type="text" id="i_code" pattern="\d+" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="5" minlength="5" name="i_code" value="@Model.Code" class="form-control" placeholder="00000"/>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm form-group">
+            <label for="i_name">Nome</label>
+            <input type="text" id="i_name" name="i_name" value="@Model.Name" class="form-control" placeholder="Nome"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm form-group">
+            <label for="i_description">Descrição</label>
+            <textarea id="i_description" name="i_description" class="form-control" placeholder="Descrição" rows="5"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm form-group">
+            <label for="i_price">Preço</label>
+            <input type="number" step="0.01" id="i_price" name="i_price" class="form-control" placeholder="@Model.Price"/>
+        </div>
+    </div>
+    <div class="container">
+      <button type="submit" name="bt_create" class="btn btn-warning"><i class="far fa-save"></i> Gravar</button>
+     <!-- @Html.ActionLink("Novo","Create","Product", null , new { @class="fas fa-plus-square btn btn-warning"})-->
+    </div>
+</div>
+}

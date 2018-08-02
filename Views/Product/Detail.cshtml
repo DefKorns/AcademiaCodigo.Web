@@ -1,0 +1,85 @@
+@using AcademiaCodigo.Web.Models;
+@model ProductModel;
+@{
+    ViewBag.Title = "Detalhe";
+    ViewBag.Header = "Detalhe - " + @Model.Name;
+}
+
+@using (Html.BeginForm("Edit", "Product"))
+{
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm form-group">
+        <label for="i_code">Código</label>
+        <input type="text" id="i_code" name="i_code" value="@Model.Code" class="form-control" placeholder="@Model.Code"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm form-group">
+        <label for="i_name">Nome</label>
+        <input type="text" id="i_name" name="i_name" value="@Model.Name" class="form-control" placeholder="@Model.Name"/>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-sm form-group">
+        <label for="i_description">Descrição</label>
+        <textarea id="i_description" name="i_description" class="form-control" placeholder="@Model.Description" rows="5">@Model.Description</textarea>
+    </div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm form-group">
+        <label for="i_price">Preço</label>
+        <input type="number" id="i_price" name="i_price" value="@Model.Price" class="form-control" placeholder="@Model.Price"/>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-sm form-group">
+        <label for="i_stock">Stock</label>
+        <p class="form-control-static deactivated-form">@Model.CurrentStock</p>
+        <input type="hidden" id="i_stock" name="i_stock" value="@Model.CurrentStock" class="form-control" placeholder="@Model.CurrentStock"/>
+        </div>
+    </div>
+
+
+    <div class="row align-items-center">
+        <div class="col-md-3">
+            <div class="contentor">
+                <h4><b><label for="i_created">Criado por</label></b></h4> 
+                <p class="form-control-static">@Model.CreatedBy - @Model.CreatedOn</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="contentor">
+                <h4><b><label for="i_updated">Atualizado por</label></b></h4> 
+                <p class="form-control-static">@Model.UpdatedBy - @Model.UpdatedOn</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="contentor">
+                <h4><b><label for="i_updated">Apagado por</label></b></h4> 
+                <p class="form-control-static">@Model.DeletedBy - @Model.DeletedOn</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="contentor">
+                <h4><b><label for="i_version">Versão</label></b></h4> 
+                <input type="hidden" id="i_version" name="i_version" value="@Model.Version" />
+                <p class="form-control-static">@Model.Version</p>
+                <input type="hidden" id="i_id" name="i_id" value="@Model.Id" />
+            </div>
+        </div>
+     </div>
+     <div class="row col-centered">
+        <div class="col-md form-group">
+            <button type="submit" name="bt_edit" class="btn btn-primary">Gravar</button>
+            <button type="reset" name="bt_delete" class="btn btn-danger">Apagar</button>
+            <!--@Html.ActionLink("Apagar","Deactivate","Product", null, new{@class="btn btn-danger"})-->
+        </div>
+    </div>
+</div>
+}
