@@ -29,3 +29,17 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+obj/AcademiaCodigo.Web.csproj.nuget.cache
+obj/AcademiaCodigo.Web.csproj.nuget.g.props
+obj/AcademiaCodigo.Web.csproj.nuget.g.targets
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.AssemblyInfo.cs
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.AssemblyInfoInputs.cache
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.assets.cache
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.csproj.CoreCompileInputs.cache
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.csprojResolveAssemblyReference.cache
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.RazorAssemblyInfo.cache
+obj/Debug/netcoreapp2.1/AcademiaCodigo.Web.RazorAssemblyInfo.cs
+obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+obj/Debug/netcoreapp2.1/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+obj/project.assets.json
