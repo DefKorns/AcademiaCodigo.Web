@@ -14,11 +14,24 @@ namespace AcademiaCodigo.Web.Controllers {
             public IActionResult Search (IFormCollection valueCollection) {
                 string code = valueCollection["i_code"];
                 string name = valueCollection["i_name"];
+                string isActive =  valueCollection["i_isActive"];
+
+
+                bool parsedActivated=false;
+                bool? activated=null;
+             var parsed=   Boolean.TryParse(isActive, out parsedActivated);
+              if(parsed){
+                  activated=parsedActivated;
+              }  
+
+                //adicionar aqui
 
                 return Search (new ProductSearchQueryModel () {
                     Code = code,
-                        Name = name,
-                        Page = 0
+                    Name = name,
+                    Page = 0,
+                    IsActive = activated
+                    
 
                 });
 
@@ -27,7 +40,7 @@ namespace AcademiaCodigo.Web.Controllers {
             private IActionResult Search (ProductSearchQueryModel viewParams) {
                 ProductManagement pm = new ProductManagement ();
                 var productList = pm.Search (viewParams.Code, viewParams.Name,
-                    null, null, null, viewParams.Page * 10, 10);
+                    null, null, viewParams.IsActive, viewParams.Page * 10, 10);
 
                 ProductViewModel model = new ProductViewModel () {
                     Products = productList,
@@ -108,7 +121,27 @@ namespace AcademiaCodigo.Web.Controllers {
                     return RedirectToAction ("Search", null);
                 }
 
-                public IActionResult Deactivate(string code){
+                public IActionResult Deactivate(long id, Guid version){
+
+                    DeactivateProductModel model = new DeactivateProductModel(){
+
+                            Version = version
+        
+                    };
+
+                    try
+                    {
+                        ProductManagement pm = new ProductManagement();
+
+                        pm.Deactivate(id, model);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return new ContentResult(){
+                            Content = "An error has occurred: " + Environment.NewLine + ex.Message
+                        };
+                    }
 
                     return RedirectToAction ("Search", null);
                 }
@@ -145,8 +178,33 @@ namespace AcademiaCodigo.Web.Controllers {
 
                     }
 
-                    return RedirectToAction ("Search", null);
+                    return RedirectToAction ("Search");
 
+                }
+
+                     public IActionResult Activate(long id, Guid version){
+
+                    ActivateProductModel model = new ActivateProductModel(){
+
+                            Version = version
+        
+                    };
+
+                    try
+                    {
+                        ProductManagement pm = new ProductManagement();
+
+                        pm.Activate(id, model);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        return new ContentResult(){
+                            Content = "An error has occurred: " + Environment.NewLine + ex.Message
+                        };
+                    }
+
+                    return RedirectToAction ("Search", null);
                 }
 
 

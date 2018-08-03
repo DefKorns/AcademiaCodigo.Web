@@ -1,9 +1,8 @@
 using System;
 namespace AcademiaCodigo.Web.Models
 {
-    public class DeactivateProductModel
+    public class ActivateProductModel
     {
         public Guid Version { get; set; }
-
     }
 }

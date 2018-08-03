@@ -76,8 +76,15 @@
      </div>
      <div class="row col-centered">
         <div class="col-md form-group">
-            <button type="submit" name="bt_edit" class="btn btn-primary">Gravar</button>
-            <button type="reset" name="bt_delete" class="btn btn-danger">Apagar</button>
+            <button type="submit" name="bt_edit" class="btn btn-primary"><i class="far fa-save"></i> Gravar</button>
+            <button class="btn btn-danger">
+                <i class ="far fa-trash-alt"></i> 
+                    @Html.ActionLink(" Desativar","Deactivate","Product", new {id = @Model.Id, version = @Model.Version}, new{@style="font-size: 14px;font-weight: 400;color:#fff;text-decoration: none !important;"})
+            </button>
+            <button class="btn btn-success">
+                <i class="fas fa-sync-alt"></i>
+                    @Html.ActionLink(" Ativar","Activate","Product", new {id = @Model.Id, version = @Model.Version}, new{@style="font-size: 14px;font-weight: 400;color:#fff;text-decoration: none !important;"})
+            </button>
             <!--@Html.ActionLink("Apagar","Deactivate","Product", null, new{@class="btn btn-danger"})-->
         </div>
     </div>

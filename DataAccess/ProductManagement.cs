@@ -39,5 +39,19 @@ namespace AcademiaCodigo.Web.DataAccess {
 
             return client.Post<CreateProductResultModel,CreateProductModel>(url,model);
         }
+
+        public DeactivateResultProductModel Deactivate(long id, DeactivateProductModel model){
+            BaseClient client = new BaseClient();
+            string url = "products/deactivate/" + id;
+
+            return client.Post<DeactivateResultProductModel,DeactivateProductModel>(url,model);
+        }
+
+        public ActivateResultProductModel Activate(long id, ActivateProductModel model){
+            BaseClient client = new BaseClient();
+            string url = "products/activate/" + id;
+
+            return client.Post<ActivateResultProductModel,ActivateProductModel>(url,model);
+        }
     }
 }
